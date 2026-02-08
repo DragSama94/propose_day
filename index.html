@@ -197,7 +197,7 @@
         // --- GLOBAL CONFIGURATION ---
         const CONFIG = {
             particleCount: 500000, 
-            baseSize: 0.08,           
+            baseSize: 0.08,            
             bloomStrength: 1.8,       
             bloomRadius: 0.5,
             colorCore: new THREE.Color(0xffaa00), 
@@ -273,7 +273,7 @@
         singularityGroup.visible = false;
         scene.add(singularityGroup);
 
-        // --- SOLAR ASSETS (Keeping your working base assets) ---
+        // --- SOLAR ASSETS ---
         const particlesGeometry = new THREE.BufferGeometry();
         const count = CONFIG.particleCount;
         const positions = new Float32Array(count * 3);
@@ -765,7 +765,7 @@
             const time = clock.getElapsedTime();
 
             if(!cinematicMode && !isTransitioning) {
-                // ... (Existing Solar System Logic) ...
+                // Solar System Logic
                 const btn = document.getElementById('final-btn');
                 if(btn && btn.classList.contains('visible')) {
                     let scale = 50 / camera.position.z; scale = Math.max(0.2, Math.min(scale, 3.0)); btn.style.transform = `translate(-50%, -50%) scale(${scale})`;
@@ -796,7 +796,7 @@
                 particlesGeometry.attributes.position.needsUpdate = true;
 
             } else if(cinematicMode) {
-                // ... (Existing Cinematic Logic for 0-200s) ...
+                // Cinematic Logic for 0-200s
                 const dt = time - cinematicStartTime;
                 dataTunnel.rotation.z += 0.02; matrixRain.position.y -= 0.5; if(matrixRain.position.y<-100) matrixRain.position.y=100;
                 neuralNet.rotation.y += 0.005; dnaHelix.rotation.y += 0.02; quantumFoam.rotation.x += 0.01;
